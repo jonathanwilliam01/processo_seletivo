@@ -1,2 +1,8 @@
-<app-index></app-index>
-<router-outlet></router-outlet>
+<app-index (componentSelected)="setComponent($event)"></app-index>
+
+<ng-container *ngIf="currentComponent === 'novo'">
+  <app-novo></app-novo>
+</ng-container>
+
+<app-novo *ngIf="currentComponent === 'Novo'"> </app-novo>
+

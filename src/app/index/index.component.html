@@ -9,21 +9,27 @@
     <h2> Listagem de Usuários </h2>
   </div>
   <div class="novo">
-    <button class="add"> <i class="pi pi-plus" style="font-size: 1rem;"> Novo Usuário </i></button>
+    <button class="add" (click)="selectComponent('novo')"> <i class="pi pi-plus-circle" style="font-size: 1rem;" > Novo Usuário </i></button>
   </div>
 
   </div>
 
 <div class="table">
   <table border="1">
+
     <thead>
     <th class="nome"> Nome </th>
-    <th colspan="2" class="email"> E-mail </th>
+    <th colspan="1" class="email_th"> E-mail </th>
     </thead>
+
     <tbody>
       <td class="nome"> Teste </td>
-      <td colspan="2" class="email"> teste <button class="delete_i"><i class="pi pi-trash" style="color: #DC3545"></i></button> </td>
+      <td colspan="" class="email_td">
+        <div class="email_dados"> teste </div>
+        <button class="delete_i"><i class="pi pi-trash" style="color: #DC3545;"></i></button>
+      </td>
     </tbody>
+
   </table>
 </div>
 </div>
