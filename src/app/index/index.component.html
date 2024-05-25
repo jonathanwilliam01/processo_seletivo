@@ -15,23 +15,24 @@
       <table border="1">
         <thead>
           <tr>
+            <th> id </th>
             <th class="nome">Nome</th>
             <th class="email_th" colspan="1">E-mail</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="nome">Teste</td>
+          <tr *ngFor="let usuario of usuarios">
+            <td> {{usuario.id}}</td>
+            <td class="nome"> {{ usuario.nome }} </td>
             <td class="email_td" colspan="1">
-              <div class="email_dados">teste</div>
-              <button class="delete_i"><i class="pi pi-trash" style="color: #DC3545;"></i></button>
+              <div class="email_dados"> {{ usuario.email }} </div>
+              <button class="delete_i" (click)="deleteUsuario(usuario)"><i class="pi pi-trash" style="color: #DC3545;"></i></button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <app-novo
-    *ngIf="mostrarNovoComponent">>
-  </app-novo>
+    <app-novo *ngIf="mostrarNovoComponent">>
+    </app-novo>
   </div>
 </div>
