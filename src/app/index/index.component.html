@@ -1,37 +1,37 @@
 <div class="container">
-
-<div class="content">
-  <div class="logo">
-    <img src="https://embras.net/assets/images/logo.png">
+  <div class="content">
+    <div class="logo">
+      <img src="https://embras.net/assets/images/logo.png">
+    </div>
+    <div class="cabecalho">
+      <div class="titulo">
+        <h2> Listagem de Usuários </h2>
+      </div>
+      <div class="novo">
+        <p-button label="Novo Usuário" icon="pi pi-plus-circle" (click)="toggleNovoComponent()"></p-button>
+      </div>
+    </div>
+    <div class="table">
+      <table border="1">
+        <thead>
+          <tr>
+            <th class="nome">Nome</th>
+            <th class="email_th" colspan="1">E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="nome">Teste</td>
+            <td class="email_td" colspan="1">
+              <div class="email_dados">teste</div>
+              <button class="delete_i"><i class="pi pi-trash" style="color: #DC3545;"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <app-novo
+    *ngIf="mostrarNovoComponent">>
+  </app-novo>
   </div>
-  <div class="cabecalho">
-  <div class="titulo">
-    <h2> Listagem de Usuários </h2>
-  </div>
-  <div class="card flex justify-content-center">
-    <p-button label="Novo Usuário" icon="pi pi-plus-circle" (click)="selectComponent('novo')"/>
-</div>
-
-  </div>
-
-<div class="table">
-  <table border="1">
-
-    <thead>
-    <th class="nome"> Nome </th>
-    <th colspan="1" class="email_th"> E-mail </th>
-    </thead>
-
-    <tbody>
-      <td class="nome"> Teste </td>
-      <td colspan="" class="email_td">
-        <div class="email_dados"> teste </div>
-        <button class="delete_i"><i class="pi pi-trash" style="color: #DC3545;"></i></button>
-      </td>
-    </tbody>
-
-  </table>
-</div>
-</div>
-
 </div>

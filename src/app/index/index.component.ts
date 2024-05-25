@@ -1,21 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
+import { NovoComponent } from '../novo/novo.component';
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [CommonModule, ButtonModule],
+  imports: [CommonModule, ButtonModule, NovoComponent],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss'
 })
 
 export class IndexComponent {
+  mostrarNovoComponent: boolean = false;
 
-  @Output() componentSelected = new EventEmitter<string>();
-
-  selectComponent(componentName: string) {
-    this.componentSelected.emit(componentName);
+  toggleNovoComponent() {
+    this.mostrarNovoComponent = !this.mostrarNovoComponent;
   }
 
 }

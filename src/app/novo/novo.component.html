@@ -1,8 +1,21 @@
-<div class="container" *ngIf="currentComponent === 'Novo'">
+<div class="container" >
 
-  <form action="" method="get">
+  <div class="cabecalho">
+    <h3> Cadastro de Usário </h3>
+    <button class="close"><a href="">X</a></button>
+  </div>
+
+  <form class="form" action="" method="get">
+    <label> Nome </label>
+    <br>
     <input type="text">
+    <br>
+    <label>E-mail</label>
+    <br>
     <input type="text">
+    <br>
+      <button class="cancelar"><a href=""></a> Cancelar </button>
+      <button class="cancelar">Confirmar </button>
   </form>
 
 </div>
