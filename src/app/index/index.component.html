@@ -15,14 +15,12 @@
       <table border="1">
         <thead>
           <tr>
-            <th> id </th>
             <th class="nome">Nome</th>
             <th class="email_th" colspan="1">E-mail</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let usuario of usuarios">
-            <td> {{usuario.id}}</td>
             <td class="nome"> {{ usuario.nome }} </td>
             <td class="email_td" colspan="1">
               <div class="email_dados"> {{ usuario.email }} </div>
@@ -32,7 +30,10 @@
         </tbody>
       </table>
     </div>
-    <app-novo *ngIf="mostrarNovoComponent">>
+    <app-novo
+      *ngIf="mostrarNovoComponent"
+      (usuarioAdicionado)="usuarioAdicionado($event)"
+      (fecharForm)="fecharForm()">>
     </app-novo>
   </div>
 </div>

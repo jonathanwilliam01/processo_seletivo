@@ -1,21 +1,21 @@
 <div class="container" >
 
   <div class="cabecalho">
-    <h3> Cadastro de Usário </h3>
-    <button class="close"><a href="">X</a></button>
+    <h4> Cadastro de usuário </h4>
+    <button class="close" (click)="fecharForm.emit()"> <i class="pi pi-times" style="font-size:0.8rem; color: #495057"></i></button>
   </div>
 
-  <form class="form" action="" method="get">
-    <label> Nome </label>
-    <br>
-    <input type="text">
-    <br>
-    <label>E-mail</label>
-    <br>
-    <input type="text">
-    <br>
-      <button class="cancelar"><a href=""></a> Cancelar </button>
-      <button class="cancelar">Confirmar </button>
+  <form class="form" (ngSubmit)="adicionarUsuario()">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" [(ngModel)]="usuario.nome" name="nome" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="usuario.email" name="email" required>
+
+    <div class="botoes">
+    <button class="cancelar" (click)="fecharForm.emit()"> <i class="pi pi-times" style="font-size:0.8rem; color: #495057"></i> Cancelar</button>
+    <button class= "confirmar" type="submit"> <i class="pi pi-check" style="font-size:0.8rem"></i> Confirmar</button>
+    </div>
   </form>
 
 </div>

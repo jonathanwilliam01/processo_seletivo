@@ -15,11 +15,6 @@ import { UsuariosService } from '../usuarios.service';
 
 export class IndexComponent implements OnInit{
   mostrarNovoComponent: boolean = false;
-
-  toggleNovoComponent() {
-    this.mostrarNovoComponent = !this.mostrarNovoComponent;
-  }
-
   usuarios: Usuario[] = [];
 
   constructor(private usuariosService: UsuariosService) {}
@@ -28,20 +23,34 @@ export class IndexComponent implements OnInit{
     this.getUsuarios();
   }
 
+  toggleNovoComponent() {
+    this.mostrarNovoComponent = !this.mostrarNovoComponent;
+  }
+
   getUsuarios() {
     this.usuariosService.getUsuarios().subscribe(data => {
       this.usuarios = data;
     });
   }
 
+  usuarioAdicionado(novoUsuario: Usuario) {
+    this.usuarios.push(novoUsuario);
+    this.mostrarNovoComponent = false;
+  }
 
-  deleteUsuario(usuario: Usuario){
+  fecharForm() {
+    this.mostrarNovoComponent = false;
+  }
+
+  deleteUsuario(usuario: Usuario): void {
     const index = this.usuarios.indexOf(usuario);
     if (index !== -1) {
-      this.usuarios.splice(index, 1);
       if (usuario.id !== undefined) {
         this.usuariosService.deleteUsuario(usuario.id).subscribe(
-          () => console.log('Usuário excluído:', usuario),
+          () => {
+            this.usuarios.splice(index, 1);
+            console.log('Usuário excluído:', usuario);
+          },
           error => console.error('Erro ao excluir usuário:', error)
         );
       } else {
@@ -49,5 +58,4 @@ export class IndexComponent implements OnInit{
       }
     }
   }
-
 }
