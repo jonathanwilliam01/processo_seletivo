@@ -4,20 +4,25 @@ import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { NovoComponent } from '../novo/novo.component';
 import { UsuariosService } from '../usuarios.service';
+import { ToastComponent } from '../toast/toast.component';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [CommonModule, ButtonModule, NovoComponent],
+  imports: [CommonModule, ButtonModule, NovoComponent, ToastComponent],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss',
 })
 
 export class IndexComponent implements OnInit{
   mostrarNovoComponent: boolean = false;
+
   usuarios: Usuario[] = [];
 
-  constructor(private usuariosService: UsuariosService) {}
+  constructor(private usuariosService: UsuariosService, private cdr: ChangeDetectorRef) {}
+
 
   ngOnInit() {
     this.getUsuarios();
@@ -36,6 +41,7 @@ export class IndexComponent implements OnInit{
   usuarioAdicionado(novoUsuario: Usuario) {
     this.usuarios.push(novoUsuario);
     this.mostrarNovoComponent = false;
+    window.location.reload();
   }
 
   fecharForm() {
@@ -57,5 +63,15 @@ export class IndexComponent implements OnInit{
         console.error('Erro ao excluir usuário: ID indefinido');
       }
     }
+  }
+
+  showToast: boolean = false;
+  toastDuration: number = 3000;
+
+  onDelete() {
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+    }, this.toastDuration);
   }
 }

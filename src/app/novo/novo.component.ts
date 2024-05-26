@@ -4,7 +4,6 @@ import { ButtonModule } from 'primeng/button';
 import { Usuario, UsuariosService } from '../usuarios.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-novo',
   standalone: true,
@@ -35,4 +34,5 @@ export class NovoComponent {
       console.error('Nome e Email são obrigatórios');
     }
   }
+
 }

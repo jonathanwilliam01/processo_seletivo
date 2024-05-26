@@ -23,6 +23,7 @@
 .close{
   border: none;
   background-color: white;
+  cursor: pointer;
 }
 
 .cabecalho{
@@ -72,6 +73,10 @@
   border: none;
 }
 
+.confirmar:hover{
+  background-color: #0253aa;
+}
+
 .cancelar {
   background-color: #ffffff;
   color: #495057;
@@ -79,4 +84,7 @@
   margin-right: 3%;
 }
 
+.cancelar:hover{
+  background-color: #ebebeb;
+}
 

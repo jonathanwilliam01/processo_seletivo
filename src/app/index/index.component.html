@@ -5,7 +5,7 @@
     </div>
     <div class="cabecalho">
       <div class="titulo">
-        <h2> Listagem de Usuários </h2>
+        <h3> Listagem de Usuários </h3>
       </div>
       <div class="novo">
         <p-button label="Novo Usuário" icon="pi pi-plus-circle" (click)="toggleNovoComponent()"></p-button>
@@ -24,7 +24,9 @@
             <td class="nome"> {{ usuario.nome }} </td>
             <td class="email_td" colspan="1">
               <div class="email_dados"> {{ usuario.email }} </div>
-              <button class="delete_i" (click)="deleteUsuario(usuario)"><i class="pi pi-trash" style="color: #DC3545;"></i></button>
+              <button class="delete_i" (click)="deleteUsuario(usuario); onDelete()">
+                <i class="pi pi-trash" style="color: #DC3545;"></i>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -33,7 +35,9 @@
     <app-novo
       *ngIf="mostrarNovoComponent"
       (usuarioAdicionado)="usuarioAdicionado($event)"
-      (fecharForm)="fecharForm()">>
+      (fecharForm)="fecharForm()">
     </app-novo>
+
+    <app-toast *ngIf="showToast" [duration]="toastDuration"></app-toast>
   </div>
 </div>
